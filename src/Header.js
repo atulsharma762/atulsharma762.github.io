@@ -58,7 +58,7 @@ export default function Header() {
             width: "20%"
           }}
         >
-          <TextWithIcon text="atul762@gmail.com" icon={[<EmailIcon />]} />
+          <TextWithIcon text="atul1762@gmail.com" icon={[<EmailIcon />]} />
           <TextWithIcon text="+91-893-XXX-XXX" icon={[<CallIcon />]} />
         </Box>
       </Box>
