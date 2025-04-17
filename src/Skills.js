@@ -1,28 +1,53 @@
 import * as React from 'react';
-import Box, { BoxProps } from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import './App.css';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { Typography } from '@mui/material';
+import { Box, Typography, Chip, Grid, useTheme } from '@mui/material';
+
+const skillCategories = {
+  'Languages & Frameworks': ['Python', 'Java', 'ReactJS', 'VB Scripting'],
+  'Testing Tools': ['UFT / QTP', 'Selenium', 'Postman'],
+  'Automation Areas': ['API Testing', 'Database Testing', 'Web UI Testing'],
+  'Other Skills': ['Excel Macros', 'Git', 'CI/CD Basics']
+};
 
 export default function Skills() {
+  const theme = useTheme();
+
   return (
-    <div className="header">
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          p: 1,
-          m: 1,
-          borderRadius: 1,
-          alignItems: "center",
-
-        }}
+    <Box
+      sx={{
+        backgroundColor: '#f9f9f9',
+        py: 4,
+        px: 2,
+        borderTop: '2px solid #e0e0e0',
+        borderBottom: '2px solid #e0e0e0',
+      }}
+    >
+      <Typography
+        variant="h5"
+        fontWeight="bold"
+        gutterBottom
+        sx={{ color: theme.palette.primary.main, textAlign: 'center' }}
       >
-  Skills
-      </Box>
+        Technical Skills
+      </Typography>
 
-
-    </div>
+      <Grid container spacing={3}>
+        {Object.entries(skillCategories).map(([category, skills]) => (
+          <Grid key={category} item xs={12} sm={6}>
+            <Typography
+              variant="subtitle2"
+              fontWeight="bold"
+              sx={{ mb: 1, color: '#333' }}
+            >
+              {category}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+              {skills.map((skill) => (
+                <Chip key={skill} label={skill} color="primary" size="small" />
+              ))}
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 }
