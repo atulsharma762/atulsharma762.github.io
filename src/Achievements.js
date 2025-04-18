@@ -6,8 +6,12 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Paper,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  useTheme,
 } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import StarIcon from '@mui/icons-material/Star';
 import BoltIcon from '@mui/icons-material/Bolt';
@@ -48,26 +52,50 @@ const achievements = [
   },
 ];
 
-const Achievements = () => (
-  <Box sx={{ p: 2, bgcolor: '#fafafa', borderRadius: 2 }}>
-    <Typography variant="h6" fontWeight={600} color="primary" mb={2}>
-      🌟 Achievements
-    </Typography>
+const Achievements = () => {
+  const theme = useTheme();
 
-    <Paper variant="outlined" sx={{ p: 2, borderRadius: 2, bgcolor: '#fff' }}>
-      <List dense>
-        {achievements.map((item, idx) => (
-          <ListItem key={idx} disableGutters alignItems="flex-start">
-            <ListItemIcon sx={{ minWidth: 32 }}>{item.icon}</ListItemIcon>
-            <ListItemText
-              primary={item.text}
-              primaryTypographyProps={{ variant: 'body2', fontWeight: 500 }}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </Paper>
-  </Box>
-);
+  return (
+    <Box sx={{ px: 2, py: 3 }}>
+      <Accordion
+        elevation={3}
+        sx={{
+          borderRadius: 2,
+          bgcolor: '#ffffff',
+          '&:before': { display: 'none' },
+        }}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="achievements-content"
+          id="achievements-header"
+        >
+          <Typography
+            variant="h6"
+            fontWeight={700}
+            color="primary"
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            🌟 Achievements
+          </Typography>
+        </AccordionSummary>
+
+        <AccordionDetails sx={{ pt: 0 }}>
+          <List dense>
+            {achievements.map((item, idx) => (
+              <ListItem key={idx} disableGutters alignItems="flex-start">
+                <ListItemIcon sx={{ minWidth: 32 }}>{item.icon}</ListItemIcon>
+                <ListItemText
+                  primary={item.text}
+                  primaryTypographyProps={{ fontSize: '0.9rem', fontWeight: 500 }}
+                />
+              </ListItem>
+            ))}
+          </List>
+        </AccordionDetails>
+      </Accordion>
+    </Box>
+  );
+};
 
 export default Achievements;

@@ -2,10 +2,13 @@ import React from 'react';
 import {
   Box,
   Typography,
-  Paper,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
   Stack,
   useTheme,
 } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SchoolIcon from '@mui/icons-material/School';
 
 const education = [
@@ -33,57 +36,63 @@ const Qualifications = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ p: 2, bgcolor: '#f5f5f5', borderRadius: 2 }}>
-      <Typography
-        variant="h6"
-        fontWeight={600}
-        color="primary"
-        mb={2}
-        textAlign="center"
-      >
-        🎓 Educational Qualifications
-      </Typography>
-
-      <Paper
-        variant="outlined"
+    <Box sx={{ px: 2, py: 3 }}>
+      <Accordion
+        elevation={3}
         sx={{
-          p: 2,
           borderRadius: 2,
-          bgcolor: '#fff',
-          overflowX: 'auto',
+          bgcolor: '#ffffff',
+          '&:before': { display: 'none' },
         }}
       >
-        <Stack
-          direction={{ xs: 'column', md: 'row' }}
-          spacing={2}
-          justifyContent="space-between"
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="education-content"
+          id="education-header"
         >
-          {education.map((item, idx) => (
-            <Box
-              key={idx}
-              sx={{
-                minWidth: { xs: '100%', md: '30%' },
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: 1.5,
-              }}
-            >
-              <SchoolIcon color="primary" fontSize="small" />
-              <Box>
-                <Typography variant="subtitle1" fontWeight={600}>
-                  {item.degree}
-                </Typography>
-                <Typography variant="body2" color="text.primary">
-                  {item.institute}
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  Year: {item.year} | Score: {item.score}
-                </Typography>
+          <Typography
+            variant="h6"
+            fontWeight={700}
+            color="primary"
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            🎓 Educational Qualifications
+          </Typography>
+        </AccordionSummary>
+
+        <AccordionDetails>
+          <Stack
+            direction={{ xs: 'column', md: 'row' }}
+            spacing={2}
+            justifyContent="space-between"
+          >
+            {education.map((item, idx) => (
+              <Box
+                key={idx}
+                sx={{
+                  minWidth: { xs: '100%', md: '30%' },
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 1.5,
+                }}
+              >
+                <SchoolIcon color="primary" fontSize="small" />
+                <Box>
+                  <Typography variant="subtitle1" fontWeight={600}>
+                    {item.degree}
+                  </Typography>
+                  <Typography variant="body2" color="text.primary">
+                    {item.institute}
+                  </Typography>
+                  <Typography variant="caption" color="text.secondary">
+                    Year: {item.year} | Score: {item.score}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
-          ))}
-        </Stack>
-      </Paper>
+            ))}
+          </Stack>
+        </AccordionDetails>
+      </Accordion>
     </Box>
   );
 };

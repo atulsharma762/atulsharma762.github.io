@@ -57,9 +57,9 @@ export default function ProfessionalSummary() {
         variant="body2"
         sx={{ mb: 2, lineHeight: 1.6, color: 'text.primary' }}
       >
-        QA Automation Engineer & Software Developer with <strong>11+ years</strong>{' '}
+        QA Automation Engineer & Software Developer with <strong>13+ years</strong>{' '}
         experience in API, DB, and Web App test automation using <strong>Python, Java, ReactJS</strong>. 
-        Skilled with UFT/QTP, Excel Macros, and Postman. Agile-focused, with a proven track record across top MNCs.
+        Skilled with Selenium, UFT/QTP, Excel Macros, and Postman. Agile-focused, with a proven track record across top MNCs.
       </Typography>
 
       <Divider sx={{ mb: 1 }} />

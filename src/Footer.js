@@ -27,7 +27,7 @@ export default function Footer() {
             GitHub
           </Link>{' '}
           |{' '}
-          <Link href="https://linkedin.com/in/atulsharma762" target="_blank" underline="hover">
+          <Link href="https://www.linkedin.com/in/atul-sharma-11040337/" target="_blank" underline="hover">
             LinkedIn
           </Link>
         </Typography>

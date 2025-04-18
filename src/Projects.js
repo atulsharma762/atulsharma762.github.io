@@ -79,7 +79,7 @@ const projects = [
     client: 'Coca-Cola',
     tech: 'Python, Selenium',
     duration: 'Nov 2017 – Dec 2018',
-    teamSize: 5-8,
+    teamSize: 5 - 8,
     role: 'Automation Lead',
     description:
       'This team deals with testing various system coke systems and applications .This is centralized automation team which deals with automation requirement in the whole account. Team gets the automation requirements from clients. Team analyzes the requirements, proposes automation solutions with estimates',
@@ -101,7 +101,7 @@ const projects = [
     client: 'Chubb Insurance  (United States)',
     tech: 'QTP, Selenium',
     duration: 'Aug 2015 – Jun 2017',
-    teamSize: 5-8,
+    teamSize: 5 - 8,
     role: 'Automation Lead',
     description:
       'This team deals with testing various Policy Admin Systems and related End user Applications.This is centralized team which deals with automation requirement in the whole account. Team proactively idenitfies various automation area within the account and proposes the benefits to the clients. Based on the inputs and approval from client, automation work is commenced.',
@@ -145,21 +145,23 @@ const projects = [
     client: 'Aetna INC. (USA)',
     tech: 'QTP, VB Scripting',
     duration: 'Nov 2011 – Sept 2014',
-    teamSize: 5-10,
+    teamSize: 5 - 10,
     role: 'Automation Test Engineer',
     description:
       'This team works on automating Aetna applications across different domains, Member, Claims, Pharmacy, Medical Management etc. Aetna Inc.is an American managed health care company, providing a range of traditional and consumer directed health care insurance products and related services, including medical, pharmaceutical, dental, behavioral health, group life, long-term care, and disability plans, and medical management capabilities.',
     responsibilities: [
-      'Automation feasibility and preparation/presentation of Automation Proposal.',
+      'Coordinating with the different domain teams and clients in the account to gather requirement, analyze and provide estimates. Automation feasibility and preparation/presentation of Automation Proposal.',
       'Estimation and Resource allocation',
-      'Status tracking and reporting.',
-      'Timely escalation of any show-stopper.',
-      'Understanding the requirements for automation, creating data and automation script.',
-      'Creating suitable automation framework and approaches for automation.',
-      'Preparation of Execution Report and Analysis of the report.',
-      'Executing Regression every release in constraint timelines.',
-      'Responsible for training of New resources and training session at accuont level.',
-
+      'Involved in identifying and prioritizing the Test Cases to be automated and estimation.Status tracking and reporting.',
+      'Experience in writing and maintaining Library Functions using VB Scripting',
+      'Involved in Execution of Scripts in Automation Framework.',
+      'Working in agile methodology with strict timelines and supervised various agile projects.',
+      'Involved in designing Project Specific Scripts using Descriptive Programming.',
+      'Fixing failures and supporting the domain team for regression execution.',
+      'Deliver the automation scripts with minimal UAT defeats to the respective domain teams for acceptance and support the team for completing the UAT.',
+      'Responsible for Preparing Daily Status Reports',
+      'Worked on Test Management Tool QC to store and execution of Automation Test script.',
+      'Preparation of Execution Report and Analysis of the report.'
     ],
   }
 ];
