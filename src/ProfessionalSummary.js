@@ -13,28 +13,28 @@ import WorkIcon from '@mui/icons-material/Work';
 const experiences = [
   {
     company: 'Edifecs',
-    title: 'Senior QA Automation Engineer',
-    tenure: 'Sep 2022 – Present',
+    title: 'Lead Automation Engineer',
+    tenure: 'May 2024 – Present',
   },
   {
     company: 'S&P Global',
-    title: 'QA Automation Engineer',
-    tenure: 'Jan 2020 – Sep 2022',
+    title: 'SDET III',
+    tenure: 'Dec 2018 – Apr 2024',
   },
   {
     company: 'Capgemini',
-    title: 'Automation Test Lead',
-    tenure: 'Jun 2017 – Jan 2020',
+    title: 'Technical Lead',
+    tenure: 'Aug 2015 – Dec-2018',
   },
   {
     company: 'IBM',
     title: 'Test Specialist',
-    tenure: 'Apr 2014 – Jun 2017',
+    tenure: 'Oct 2014 – Aug 2015',
   },
   {
     company: 'Cognizant Technology Solutions',
-    title: 'QA Engineer',
-    tenure: 'Jul 2012 – Apr 2014',
+    title: 'Programmer Analyst',
+    tenure: 'Jul 2011 – Oct 2014',
   },
 ];
 

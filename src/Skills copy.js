@@ -2,10 +2,9 @@ import * as React from 'react';
 import { Box, Typography, Chip, Grid, useTheme } from '@mui/material';
 
 const skillCategories = {
-  'Languages & Frameworks': ['Python', 'Java', 'ReactJS', 'VB Scripting', "Javascript"],
+  'Languages & Frameworks': ['Python', 'Java', 'ReactJS', 'VB Scripting'],
   'Testing Tools': ['UFT / QTP', 'Selenium', 'Postman'],
   'Automation Areas': ['API Testing', 'Database Testing', 'Web UI Testing'],
-  'Database Skills': ['MS SQL', 'Postgres', 'SQL Server'],
   'Other Skills': ['Excel Macros', 'Git', 'CI/CD Basics']
 };
 

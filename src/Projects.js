@@ -10,6 +10,8 @@ import {
   ListItem,
   ListItemText,
   Stack,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import WorkIcon from '@mui/icons-material/Work';
@@ -72,13 +74,109 @@ const projects = [
       'Status tracking and reporting.',
     ],
   },
+  {
+    title: 'Coke Automation - Capgemini',
+    client: 'Coca-Cola',
+    tech: 'Python, Selenium',
+    duration: 'Nov 2017 – Dec 2018',
+    teamSize: 5-8,
+    role: 'Automation Lead',
+    description:
+      'This team deals with testing various system coke systems and applications .This is centralized automation team which deals with automation requirement in the whole account. Team gets the automation requirements from clients. Team analyzes the requirements, proposes automation solutions with estimates',
+    responsibilities: [
+      'Automation feasibility and preparation/presentation of Automation Proposal.',
+      'Estimation and Resource allocation',
+      'Status tracking and reporting.',
+      'Timely escalation of any show-stopper.',
+      'Understanding the requirements for automation, creating data and automation script.',
+      'Creating suitable automation framework and approaches for automation.',
+      'Preparation of Execution Report and Analysis of the report.',
+      'Executing Regression every release in constraint timelines.',
+      'Responsible for training of New resources and training session at accuont level.',
+
+    ],
+  },
+  {
+    title: 'Chubb Personal Risk Service - Capgemini',
+    client: 'Chubb Insurance  (United States)',
+    tech: 'QTP, Selenium',
+    duration: 'Aug 2015 – Jun 2017',
+    teamSize: 5-8,
+    role: 'Automation Lead',
+    description:
+      'This team deals with testing various Policy Admin Systems and related End user Applications.This is centralized team which deals with automation requirement in the whole account. Team proactively idenitfies various automation area within the account and proposes the benefits to the clients. Based on the inputs and approval from client, automation work is commenced.',
+    responsibilities: [
+      'Automation feasibility and preparation/presentation of Automation Proposal.',
+      'Estimation and Resource allocation',
+      'Status tracking and reporting.',
+      'Timely escalation of any show-stopper.',
+      'Understanding the requirements for automation, creating data and automation script.',
+      'Creating suitable automation framework and approaches for automation.',
+      'Preparation of Execution Report and Analysis of the report.',
+      'Executing Regression every release in constraint timelines.',
+      'Responsible for training of New resources and training session at accuont level.',
+
+    ],
+  },
+  {
+    title: 'Fixed Income-FX Options - IBM',
+    client: 'BNP Paribas  (Paris)',
+    tech: 'QTP, VB Scripting',
+    duration: 'Oct 2014 – Aug 2015',
+    teamSize: 5,
+    role: 'Automation Test Engineer',
+    description:
+      'This team deals with testing of deal booking and trading transactions across different currencies. For eg. EURUSD, EURGBP, JPYUSD, Bullions. This is a decentralized team which is responsible of automation scripting, functional and regression testing. There are various applications on which testing is performed. These application include Dotnet applications, XML comparison, Webservices testing and Cross-database testing.ing.',
+    responsibilities: [
+      'Automation feasibility and preparation/presentation of Automation Proposal.',
+      'Estimation and Resource allocation',
+      'Status tracking and reporting.',
+      'Timely escalation of any show-stopper.',
+      'Understanding the requirements for automation, creating data and automation script.',
+      'Creating suitable automation framework and approaches for automation.',
+      'Preparation of Execution Report and Analysis of the report.',
+      'Executing Regression every release in constraint timelines.',
+      'Responsible for training of New resources and training session at accuont level.',
+
+    ],
+  },
+  {
+    title: 'SIT Engagement in Automation - Coginzant',
+    client: 'Aetna INC. (USA)',
+    tech: 'QTP, VB Scripting',
+    duration: 'Nov 2011 – Sept 2014',
+    teamSize: 5-10,
+    role: 'Automation Test Engineer',
+    description:
+      'This team works on automating Aetna applications across different domains, Member, Claims, Pharmacy, Medical Management etc. Aetna Inc.is an American managed health care company, providing a range of traditional and consumer directed health care insurance products and related services, including medical, pharmaceutical, dental, behavioral health, group life, long-term care, and disability plans, and medical management capabilities.',
+    responsibilities: [
+      'Automation feasibility and preparation/presentation of Automation Proposal.',
+      'Estimation and Resource allocation',
+      'Status tracking and reporting.',
+      'Timely escalation of any show-stopper.',
+      'Understanding the requirements for automation, creating data and automation script.',
+      'Creating suitable automation framework and approaches for automation.',
+      'Preparation of Execution Report and Analysis of the report.',
+      'Executing Regression every release in constraint timelines.',
+      'Responsible for training of New resources and training session at accuont level.',
+
+    ],
+  }
 ];
 
 const Projects = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box sx={{ p: { xs: 2, sm: 4 }, backgroundColor: '#f9f9f9' }}>
-      <Typography variant="h6" fontWeight={600} color="primary" mb={2}>
-        🚀 <span>Project Experience</span>
+      <Typography
+        variant={isMobile ? 'h6' : 'h5'}
+        fontWeight={600}
+        color="primary"
+        mb={2}
+      >
+        🚀 Project Experience
       </Typography>
 
       {projects.map((project, idx) => (
@@ -88,22 +186,45 @@ const Projects = () => {
             sx={{
               backgroundColor: '#e3f2fd',
               borderRadius: 2,
+              flexDirection: isMobile ? 'column' : 'row',
               '& .MuiAccordionSummary-content': {
-                alignItems: 'center',
+                alignItems: isMobile ? 'flex-start' : 'center',
                 justifyContent: 'space-between',
+                flexDirection: isMobile ? 'column' : 'row',
               },
             }}
           >
             <Box>
-              <Typography variant="subtitle1" fontWeight="bold" color="#1976d2">
+              <Typography
+                variant="subtitle1"
+                fontWeight="bold"
+                color="#1976d2"
+              >
                 {project.title}
               </Typography>
               <Typography variant="caption">{project.client}</Typography>
             </Box>
-            <Stack direction="row" spacing={1}>
-              <Chip icon={<AccessTimeIcon />} label={project.duration} size="small" />
-              <Chip icon={<GroupIcon />} label={`Team: ${project.teamSize}`} size="small" />
-              <Chip icon={<WorkIcon />} label={project.role} size="small" color="primary" />
+            <Stack
+              direction={isMobile ? 'column' : 'row'}
+              spacing={1}
+              mt={isMobile ? 1 : 0}
+            >
+              <Chip
+                icon={<AccessTimeIcon />}
+                label={project.duration}
+                size="small"
+              />
+              <Chip
+                icon={<GroupIcon />}
+                label={`Team: ${project.teamSize}`}
+                size="small"
+              />
+              <Chip
+                icon={<WorkIcon />}
+                label={project.role}
+                size="small"
+                color="primary"
+              />
             </Stack>
           </AccordionSummary>
 

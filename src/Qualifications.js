@@ -3,10 +3,8 @@ import {
   Box,
   Typography,
   Paper,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
+  Stack,
+  useTheme,
 } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 
@@ -31,39 +29,63 @@ const education = [
   },
 ];
 
-const Qualifications = () => (
-  <Box sx={{ p: 2, bgcolor: '#f5f5f5', borderRadius: 2 }}>
-    <Typography variant="h6" fontWeight={600} color="primary" mb={2}>
-      🎓 Educational Qualifications
-    </Typography>
+const Qualifications = () => {
+  const theme = useTheme();
 
-    <Paper variant="outlined" sx={{ p: 2, borderRadius: 2, bgcolor: '#fff' }}>
-      <List dense>
-        {education.map((item, idx) => (
-          <ListItem key={idx} disableGutters alignItems="flex-start">
-            <ListItemIcon sx={{ minWidth: 32 }}>
-              <SchoolIcon fontSize="small" color="primary" />
-            </ListItemIcon>
-            <ListItemText
-              primary={
+  return (
+    <Box sx={{ p: 2, bgcolor: '#f5f5f5', borderRadius: 2 }}>
+      <Typography
+        variant="h6"
+        fontWeight={600}
+        color="primary"
+        mb={2}
+        textAlign="center"
+      >
+        🎓 Educational Qualifications
+      </Typography>
+
+      <Paper
+        variant="outlined"
+        sx={{
+          p: 2,
+          borderRadius: 2,
+          bgcolor: '#fff',
+          overflowX: 'auto',
+        }}
+      >
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={2}
+          justifyContent="space-between"
+        >
+          {education.map((item, idx) => (
+            <Box
+              key={idx}
+              sx={{
+                minWidth: { xs: '100%', md: '30%' },
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: 1.5,
+              }}
+            >
+              <SchoolIcon color="primary" fontSize="small" />
+              <Box>
                 <Typography variant="subtitle1" fontWeight={600}>
                   {item.degree}
                 </Typography>
-              }
-              secondary={
-                <>
-                  <Typography variant="body2">{item.institute}</Typography>
-                  <Typography variant="caption" color="text.secondary">
-                    Year: {item.year} | Score: {item.score}
-                  </Typography>
-                </>
-              }
-            />
-          </ListItem>
-        ))}
-      </List>
-    </Paper>
-  </Box>
-);
+                <Typography variant="body2" color="text.primary">
+                  {item.institute}
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  Year: {item.year} | Score: {item.score}
+                </Typography>
+              </Box>
+            </Box>
+          ))}
+        </Stack>
+      </Paper>
+    </Box>
+  );
+};
 
 export default Qualifications;

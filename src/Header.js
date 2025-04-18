@@ -1,74 +1,91 @@
 import * as React from 'react';
-import { Box, Avatar, Typography, Stack, Divider } from '@mui/material';
+import {
+  Box,
+  Avatar,
+  Typography,
+  Stack,
+  Divider,
+  useTheme,
+  Tooltip,
+} from '@mui/material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import EmailIcon from '@mui/icons-material/Email';
 import CallIcon from '@mui/icons-material/Call';
 
 export default function Header() {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
-        width: '99%',
-        py: 2.5,
+        width: '96%',
         px: 3,
-        bgcolor: '#f5f5f5',
-        color: '#333',
-        borderRadius: '12px',
-        border: '1px solid #e0e0e0',
+        py: 2,
+        backdropFilter: 'blur(10px)',
+        background: 'rgba(255, 255, 255, 0.8)',
+        borderRadius: 4,
+        boxShadow: '0 8px 30px rgba(0,0,0,0.1)',
+        border: '1px solid rgba(255,255,255,0.3)',
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
-        alignItems: { xs: 'flex-start', md: 'center' },
+        alignItems: 'center',
         justifyContent: 'space-between',
         gap: 2,
       }}
     >
-      {/* Profile Section */}
+      {/* Profile Info */}
       <Stack direction="row" alignItems="center" spacing={2}>
         <Avatar
+          alt="Atul Sharma"
+          src="/profile.jpg" // Use your image or keep empty
           sx={{
-            bgcolor: '#3f51b5',
-            color: '#fff',
+            width: 64,
+            height: 64,
+            fontSize: '1.4rem',
             fontWeight: 'bold',
-            width: 56,
-            height: 56,
-            fontSize: '1.2rem',
+            bgcolor: theme.palette.primary.main,
           }}
         >
           A
         </Avatar>
         <Box>
-          <Typography variant="h6" fontWeight={600}>
+          <Typography variant="h6" fontWeight={700}>
             Atul Sharma
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Software Developer
+            Automation Wizard ⚙️ | Full-stack Dev 💻
           </Typography>
         </Box>
       </Stack>
 
-      {/* Divider for small screens */}
-      <Divider
-        flexItem
-        sx={{ display: { xs: 'block', md: 'none' }, my: 1 }}
-      />
+      <Divider sx={{ display: { xs: 'block', md: 'none' }, my: 1 }} />
 
       {/* Experience */}
-      <Stack direction="row" alignItems="center" spacing={1}>
-        <AccountBoxIcon fontSize="small" color="action" />
-        <Typography variant="body2" fontWeight={500}>
-          13+ Yrs Experience
+      <Stack
+        direction="row"
+        spacing={1}
+        alignItems="center"
+        sx={{ color: '#444' }}
+      >
+        <Tooltip title="Years of Professional Experience">
+          <AccountBoxIcon color="primary" />
+        </Tooltip>
+        <Typography fontSize="0.95rem" fontWeight={600}>
+          13+ Years of Excellence
         </Typography>
       </Stack>
 
-      {/* Contact Section */}
+      {/* Contact Info */}
       <Stack spacing={0.5}>
         <Stack direction="row" spacing={1} alignItems="center">
-          <EmailIcon fontSize="small" color="action" />
-          <Typography variant="body2">atul762@gmail.com</Typography>
+          <EmailIcon color="primary" />
+          <Typography fontSize="0.9rem" noWrap>
+            atul762@gmail.com
+          </Typography>
         </Stack>
         <Stack direction="row" spacing={1} alignItems="center">
-          <CallIcon fontSize="small" color="action" />
-          <Typography variant="body2">+91-893-960-9696</Typography>
+          <CallIcon color="primary" />
+          <Typography fontSize="0.9rem">+91-893-960-9696</Typography>
         </Stack>
       </Stack>
     </Box>
