@@ -18,11 +18,12 @@ export default function App() {
       <Header/>
       <Skills/>
       <ProfessionalSummary/>
-      
-      <ProjectExperience/>
-      <Achievements/>
-      <Qualifications/>
       <Projects/>    
+      
+      {/* <ProjectExperience/> */}
+      <Qualifications/>
+      <Achievements/>
+      
       <Footer/> 
     </div>
   );

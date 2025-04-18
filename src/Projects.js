@@ -1,5 +1,20 @@
 import React from 'react';
-import { Box, Typography, Paper, Divider, Chip, List, ListItem, ListItemText } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Chip,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  List,
+  ListItem,
+  ListItemText,
+  Stack,
+} from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import WorkIcon from '@mui/icons-material/Work';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import GroupIcon from '@mui/icons-material/Group';
 
 const projects = [
   {
@@ -61,47 +76,56 @@ const projects = [
 
 const Projects = () => {
   return (
-    <Box sx={{ padding: '2rem', backgroundColor: '#f5f5f5' }}>
-      <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: '2rem' }}>
-        🚀 Project Experience
+    <Box sx={{ p: { xs: 2, sm: 4 }, backgroundColor: '#f9f9f9' }}>
+      <Typography variant="h6" fontWeight={600} color="primary" mb={2}>
+        🚀 <span>Project Experience</span>
       </Typography>
 
       {projects.map((project, idx) => (
-        <Paper
-          key={idx}
-          elevation={4}
-          sx={{ padding: '1.5rem', marginBottom: '2rem', borderRadius: '16px' }}
-        >
-          <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#1976d2' }}>
-            {project.title}
-          </Typography>
-          <Typography variant="subtitle1" sx={{ mb: 1 }}>
-            <strong>Client:</strong> {project.client}
-          </Typography>
-          <Divider sx={{ my: 1 }} />
+        <Accordion key={idx} sx={{ mb: 2, borderRadius: 2 }}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            sx={{
+              backgroundColor: '#e3f2fd',
+              borderRadius: 2,
+              '& .MuiAccordionSummary-content': {
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              },
+            }}
+          >
+            <Box>
+              <Typography variant="subtitle1" fontWeight="bold" color="#1976d2">
+                {project.title}
+              </Typography>
+              <Typography variant="caption">{project.client}</Typography>
+            </Box>
+            <Stack direction="row" spacing={1}>
+              <Chip icon={<AccessTimeIcon />} label={project.duration} size="small" />
+              <Chip icon={<GroupIcon />} label={`Team: ${project.teamSize}`} size="small" />
+              <Chip icon={<WorkIcon />} label={project.role} size="small" color="primary" />
+            </Stack>
+          </AccordionSummary>
 
-          <Box sx={{ mb: 1 }}>
-            <Chip label={`Duration: ${project.duration}`} sx={{ mr: 1 }} />
-            <Chip label={`Team Size: ${project.teamSize}`} sx={{ mr: 1 }} />
-            <Chip label={`Role: ${project.role}`} color="primary" />
-          </Box>
-          <Typography variant="body1" sx={{ mb: 1 }}>
-            <strong>Technical Skills Used:</strong> {project.tech}
-          </Typography>
-
-          <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Description:</strong> {project.description}
-          </Typography>
-
-          <Typography variant="body2" sx={{ fontWeight: 600, mb: 0.5 }}>Responsibilities:</Typography>
-          <List dense>
-            {project.responsibilities.map((item, i) => (
-              <ListItem key={i}>
-                <ListItemText primary={`✔️ ${item}`} />
-              </ListItem>
-            ))}
-          </List>
-        </Paper>
+          <AccordionDetails sx={{ backgroundColor: '#fff' }}>
+            <Typography variant="body2" mb={1}>
+              <strong>Tech Used:</strong> {project.tech}
+            </Typography>
+            <Typography variant="body2" mb={1}>
+              <strong>Description:</strong> {project.description}
+            </Typography>
+            <Typography variant="body2" fontWeight="bold">
+              Responsibilities:
+            </Typography>
+            <List dense>
+              {project.responsibilities.map((res, i) => (
+                <ListItem key={i} sx={{ pl: 0 }}>
+                  <ListItemText primary={`✅ ${res}`} />
+                </ListItem>
+              ))}
+            </List>
+          </AccordionDetails>
+        </Accordion>
       ))}
     </Box>
   );
