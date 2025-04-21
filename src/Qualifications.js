@@ -36,7 +36,7 @@ const Qualifications = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ px: 2, py: 3 }}>
+    <Box sx={{ px: 1, py: 1 }}>
       <Accordion
         elevation={3}
         sx={{
@@ -44,6 +44,7 @@ const Qualifications = () => {
           bgcolor: '#ffffff',
           '&:before': { display: 'none' },
         }}
+        defaultExpanded
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

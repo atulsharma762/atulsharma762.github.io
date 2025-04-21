@@ -44,12 +44,9 @@ const achievements = [
   },
   {
     icon: <StarIcon sx={{ color: '#00BFFF' }} />,
-    text: 'Built multiple tools to automate processes; recognized across teams.',
+    text: 'Created several tools to automate and optimize workflows for multiple cross-functional teams.',
   },
-  {
-    icon: <BoltIcon color="secondary" />,
-    text: 'Contributed automation ideas as part of Aetna Innovation Team.',
-  },
+
 ];
 
 const Achievements = () => {
@@ -64,6 +61,7 @@ const Achievements = () => {
           bgcolor: '#ffffff',
           '&:before': { display: 'none' },
         }}
+        defaultExpanded
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

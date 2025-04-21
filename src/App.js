@@ -56,7 +56,7 @@ function TightSection({
   return (
     <Box
       sx={{
-        py: 3, // reduced padding
+        // py: , // reduced padding
         px: { xs: 2, sm: 3 },
         backgroundColor: alternate ? '#ffffff' : '#f9f9f9',
         borderTop: '1px solid #e0e0e0',
