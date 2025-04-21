@@ -53,7 +53,7 @@ const Achievements = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ px: 2, py: 3 }}>
+    <Box sx={{ px: 2, py: 1 }}>
       <Accordion
         elevation={3}
         sx={{
