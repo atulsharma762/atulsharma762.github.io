@@ -79,7 +79,7 @@ const projects = [
     client: 'Coca-Cola',
     tech: 'Python, Selenium',
     duration: 'Nov 2017 – Dec 2018',
-    teamSize: "5 - 8",
+    teamSize: 5 - 8,
     role: 'Automation Lead',
     description:
       'This team deals with testing various system coke systems and applications .This is centralized automation team which deals with automation requirement in the whole account. Team gets the automation requirements from clients. Team analyzes the requirements, proposes automation solutions with estimates',
@@ -101,7 +101,7 @@ const projects = [
     client: 'Chubb Insurance  (United States)',
     tech: 'QTP, Selenium',
     duration: 'Aug 2015 – Jun 2017',
-    teamSize: "5 - 8",
+    teamSize: 5 - 8,
     role: 'Automation Lead',
     description:
       'This team deals with testing various Policy Admin Systems and related End user Applications.This is centralized team which deals with automation requirement in the whole account. Team proactively idenitfies various automation area within the account and proposes the benefits to the clients. Based on the inputs and approval from client, automation work is commenced.',
